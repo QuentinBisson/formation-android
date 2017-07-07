@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FormationAndroid</string>
+    <string name="hello_world_2">Hello world 2 !</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="clear">Clear</string>
+    <string name="password_length_error">Password must be at least 3 characters</string>
+    <string name="login_empty_error">Login must be filled</string>
+</resources>
