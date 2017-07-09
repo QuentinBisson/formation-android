@@ -6,4 +6,5 @@
     <string name="clear">Clear</string>
     <string name="password_length_error">Password must be at least 3 characters</string>
     <string name="login_empty_error">Login must be filled</string>
+    <string name="chat">Chat</string>
 </resources>

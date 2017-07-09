@@ -8,6 +8,10 @@ public class Message {
     private String login;
     private String message;
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getUuid() {
         return uuid;
     }
@@ -18,10 +22,6 @@ public class Message {
 
     public String getMessage() {
         return message;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     @Override
@@ -48,6 +48,10 @@ public class Message {
 
     public static class Builder {
         private Message building;
+
+        public Builder() {
+            building = new Message();
+        }
 
         public Builder uuid(String uuid) {
             building.uuid = uuid;

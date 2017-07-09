@@ -8,32 +8,21 @@ import android.widget.TextView;
 
 import com.qbisson.formationandroid.R;
 import com.qbisson.formationandroid.models.Message;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
     private List<Message> messages;
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-        notifyDataSetChanged();
-    }
-
-    // Provide a reference to the views for each data item
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView login;
-        public TextView message;
-
-        public ViewHolder(View v) {
-            super(v);
-            login = v.findViewById(R.id.login_message);
-            message = v.findViewById(R.id.message);
-        }
-    }
-
     // Provide a suitable constructor (depends on the kind of dataset)
     public MessageAdapter() {
         this.messages = new ArrayList<>();
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+        notifyDataSetChanged();
     }
 
     // Create new views (invoked by the layout manager)
@@ -50,11 +39,27 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         Message message = messages.get(position);
         holder.login.setText(message.getLogin());
         holder.message.setText(message.getMessage());
+        if (message.getLogin().equals("qbisson")) {
+            holder.login.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            holder.message.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return messages.size();
+    }
+
+    // Provide a reference to the views for each data item
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView login;
+        public TextView message;
+
+        public ViewHolder(View v) {
+            super(v);
+            login = v.findViewById(R.id.login);
+            message = v.findViewById(R.id.message);
+        }
     }
 }

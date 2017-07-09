@@ -75,9 +75,9 @@
                     android:id="@+id/loginError"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@string/login_empty_error"
                     android:textColor="#FF0000"
-                    android:visibility="gone"
-                    android:text="@string/login_empty_error" />
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/password"
@@ -89,9 +89,9 @@
                     android:id="@+id/passwordError"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="@string/password_length_error"
                     android:textColor="#FF0000"
-                    android:visibility="gone"
-                    android:text="@string/password_length_error" />
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -106,10 +106,10 @@
 
                     <Button
                         android:id="@+id/submit"
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/login" />
+                        android:text="@string/login"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -119,18 +119,18 @@
 
     <FrameLayout
         android:id="@+id/progressBarHolder"
-        android:animateLayoutChanges="true"
-        android:visibility="gone"
-        android:alpha="0.4"
-        android:background="#000000"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:visibility="gone">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:indeterminate="true" />
     </FrameLayout>
 </RelativeLayout>

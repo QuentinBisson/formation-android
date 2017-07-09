@@ -1,8 +1,8 @@
 package com.qbisson.formationandroid;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,18 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.qbisson.formationandroid.models.Message;
 import com.qbisson.formationandroid.services.ChatService;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.HTTP;
 
-public class  LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "Logging";
 
     private EditText login;

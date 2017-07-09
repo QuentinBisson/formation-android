@@ -8,14 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.qbisson.formationandroid.adapter.MessageAdapter;
 import com.qbisson.formationandroid.models.Message;
 import com.qbisson.formationandroid.services.ChatService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,6 +27,8 @@ public class ChatActivity extends AppCompatActivity {
     private ChatService chatService;
     private FrameLayout progressBarHolder;
     private RecyclerView list;
+    private EditText messageInput;
+    private Button messageButton;
     private MessageAdapter adapter;
     private String login;
     private String password;
@@ -47,6 +49,19 @@ public class ChatActivity extends AppCompatActivity {
 //        animation.setDuration(200);
 //        progressBarHolder.setAnimation(animation);
 //        progressBarHolder.setVisibility(View.VISIBLE);
+
+        messageInput = (EditText) findViewById(R.id.message_input);
+        messageButton = (Button) findViewById(R.id.message_button);
+
+        messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String messageContent = messageInput.getText().toString();
+                if (!messageContent.isEmpty()) {
+                    addMessage(messageContent);
+                }
+            }
+        });
 
         list = (RecyclerView) findViewById(R.id.messages);
         list.setHasFixedSize(true);
@@ -99,6 +114,9 @@ public class ChatActivity extends AppCompatActivity {
 //                clearAnimation();
                 if (response.code() == 200) {
                     // TODO populate view
+                    messageInput.setText("");
+                    messageInput.clearFocus();
+                    loadMessages();
                 } else if (response.code() == 400) {
                     // We retry to add the message till the UUID is available
                     addMessage(content);
