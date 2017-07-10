@@ -1,4 +1,4 @@
-package com.qbisson.formationandroid.models;
+package com.qbisson.formationandroid.model;
 
 import java.util.Objects;
 
@@ -57,7 +57,6 @@ public class Message {
             building.uuid = uuid;
             return this;
         }
-
 
         public Builder message(String message) {
             building.message = message;
